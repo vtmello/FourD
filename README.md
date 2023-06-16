@@ -1,0 +1,5 @@
+# Etapa 3
+
+O problema com o código apresentado é que ele está realizando uma consulta dentro de um loop for, o que pode levar a problemas de desempenho e consumo excessivo de recursos do sistema. Especificamente, a linha Oppcontacts = [SELECT id,contact.email,contact.fistname,contact.lastname from OpportunityContactRole where Opportunityid =: OppA.id AND Role =: 'Responsável Financeiro']; está dentro do loop for e faz uma consulta ao banco de dados para cada oportunidade na lista Opp. Isso pode causar lentidão e estourar limites de SOQL (Salesforce Object Query Language) caso a lista Opp tenha muitos registros.
+
+Para contornar esse problema, pode seguir uma abordagem conhecida como "consulta de conjunto" (query by set) para obter todos os IDs das oportunidades que precisam ser verificadas e, em seguida, executar uma única consulta para buscar os OpportunityContactRole correspondentes. Para exemplificar, foi criada a classe BloqueiaIntegracaoController.

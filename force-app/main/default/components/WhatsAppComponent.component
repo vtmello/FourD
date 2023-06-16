@@ -1,0 +1,11 @@
+<apex:component controller="WhatsAppSendMessageController">
+    <apex:form>
+        <apex:pageMessages />
+        <apex:pageBlock>
+            <apex:pageBlockSection>
+                <apex:inputText value="{!leadPhoneNumber}" label="Telefone do Lead" />
+                <apex:commandButton action="{!enviarMensagemWhatsApp}" value="Enviar Mensagem" />
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:component>
